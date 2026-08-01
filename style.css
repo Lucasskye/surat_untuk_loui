@@ -1,0 +1,830 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#ffdce8;
+
+    color:#444;
+
+    overflow-x:hidden;
+
+}
+
+/* =====================================================
+BACKGROUND
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,#ffeef5 0%,#ffdce8 55%,#ffd4e2 100%);
+
+    z-index:-3;
+
+}
+
+/* =====================================================
+PETALS
+===================================================== */
+
+#petals{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.petal{
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    background:#ffb9d4;
+
+    border-radius:60% 40% 60% 40%;
+
+    opacity:.75;
+
+    animation:fall linear infinite;
+
+}
+
+.petal:nth-child(2n){
+
+    background:#ffcfe2;
+
+}
+
+.petal:nth-child(3n){
+
+    background:white;
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(120vh)
+        rotate(360deg);
+
+    }
+
+}
+
+/* =====================================================
+OPENING PAGE
+===================================================== */
+
+#opening{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+/* =====================================================
+FLOWER IMAGE
+===================================================== */
+
+.topFlower{
+
+    margin-bottom:18px;
+
+}
+
+.topFlower img{
+
+    width:150px;
+
+}
+
+/* =====================================================
+TEXT
+===================================================== */
+
+.reminder{
+
+    font-size:15px;
+
+    color:#b46d8a;
+
+    letter-spacing:2px;
+
+    margin-bottom:40px;
+
+    text-transform:uppercase;
+
+}
+
+#opening h1{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:60px;
+
+    font-weight:700;
+
+    color:#d14c83;
+
+    margin-top:35px;
+
+}
+
+#opening h1 span{
+
+    color:#ff4d9a;
+
+}
+
+#opening p{
+
+    max-width:500px;
+
+    margin-top:20px;
+
+    line-height:1.8;
+
+    color:#7c6770;
+
+    font-size:17px;
+
+}
+
+.flowerEmoji{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+}
+
+/* =====================================================
+   GIFT BOX
+===================================================== */
+
+.giftArea{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:25px;
+
+    margin-bottom:35px;
+
+}
+
+#gift{
+
+    position:relative;
+
+    width:170px;
+
+    height:170px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    filter:drop-shadow(0 15px 35px rgba(255,80,150,.35));
+
+}
+
+#gift:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+/* =========================
+BOX
+========================= */
+
+.box{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:170px;
+
+    height:120px;
+
+    background:linear-gradient(
+    180deg,
+    #ff8cbc,
+    #ff6fa8
+    );
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================
+LID
+========================= */
+
+.lid{
+
+    position:absolute;
+
+    top:18px;
+
+    left:-8px;
+
+    width:186px;
+
+    height:38px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+    180deg,
+    #ff9ec8,
+    #ff80b5
+    );
+
+    z-index:20;
+
+    transform-origin:center bottom;
+
+}
+
+
+/* =========================
+RIBBON
+========================= */
+
+.ribbonV{
+
+    position:absolute;
+
+    left:74px;
+
+    top:0;
+
+    width:22px;
+
+    height:170px;
+
+    background:white;
+
+    z-index:5;
+
+}
+
+.ribbonH{
+
+    position:absolute;
+
+    top:65px;
+
+    left:0;
+
+    width:170px;
+
+    height:22px;
+
+    background:white;
+
+    z-index:6;
+
+}
+
+
+/* =========================
+BOW
+========================= */
+
+.bow{
+
+    position:absolute;
+
+    top:-8px;
+
+    left:50%;
+
+    width:34px;
+
+    height:34px;
+
+    transform:translateX(-50%);
+
+    z-index:30;
+
+}
+
+.bow::before,
+.bow::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:26px;
+
+    height:26px;
+
+    border:6px solid white;
+
+    border-radius:50% 50% 0 50%;
+
+    transform:rotate(45deg);
+
+}
+
+.bow::before{
+
+    left:-15px;
+
+}
+
+.bow::after{
+
+    right:-15px;
+
+    transform:rotate(-45deg);
+
+}
+
+
+/* =========================
+GLOW
+========================= */
+
+#gift::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-12px;
+
+    transform:translateX(-50%);
+
+    width:130px;
+
+    height:22px;
+
+    background:rgba(255,110,170,.35);
+
+    filter:blur(16px);
+
+    border-radius:50%;
+
+}
+
+
+/* =========================
+OPEN ANIMATION
+========================= */
+
+.lid.open{
+
+    animation:openLid 1.1s forwards;
+
+}
+
+@keyframes openLid{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0);
+
+        opacity:1;
+
+    }
+
+    35%{
+
+        transform:
+        translateY(-30px)
+        rotate(-12deg);
+
+    }
+
+    70%{
+
+        transform:
+        translateY(-130px)
+        rotate(-28deg);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-220px)
+        rotate(-40deg);
+
+        opacity:0;
+
+    }
+
+}
+/* =====================================================
+   GALLERY
+===================================================== */
+
+#gallery{
+
+    display:none;
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:70px 20px 100px;
+
+}
+
+#gallery.show{
+
+    display:block;
+
+    animation:fadePage 1s ease;
+
+}
+
+@keyframes fadePage{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+TITLE
+===================================================== */
+
+#gallery h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    text-align:center;
+
+    font-size:52px;
+
+    color:#d84b87;
+
+    margin-bottom:12px;
+
+}
+
+.desc{
+
+    text-align:center;
+
+    color:#8a6b75;
+
+    margin-bottom:60px;
+
+    font-size:17px;
+
+}
+
+
+/* =====================================================
+PHOTO
+===================================================== */
+
+.photo{
+
+    width:100%;
+    max-width:420px;
+    margin:0 auto 60px;
+    background:white;
+    border-radius:10px;
+    padding:14px 14px 26px;
+    border:1px solid #eeeeee;
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+    opacity:0;
+    transition:1s;
+
+}
+.photo:nth-child(odd){
+
+    transform:translateY(70px) rotate(-3deg);
+
+}
+
+.photo:nth-child(even){
+
+    transform:translateY(70px) rotate(3deg);
+
+}
+
+.photo:nth-child(odd).show{
+
+    opacity:1;
+
+    transform:translateY(0) rotate(-3deg);
+
+}
+
+.photo:nth-child(even).show{
+
+    opacity:1;
+
+    transform:translateY(0) rotate(3deg);
+
+}
+
+.photo img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:6px;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+}
+
+.photo p{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    color:#666;
+
+    line-height:1.7;
+
+    font-style:italic;
+
+}
+
+
+/* =====================================================
+HOVER
+===================================================== */
+
+.photo:hover{
+
+    transform:
+    translateY(-8px)
+    scale(1.02);
+
+    transition:.35s;
+
+    box-shadow:
+    0 25px 45px rgba(0,0,0,.20);
+
+}
+
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media(max-width:768px){
+
+#opening h1{
+
+    font-size:46px;
+
+}
+
+#gallery h2{
+
+    font-size:40px;
+
+}
+
+#opening p{
+
+    font-size:15px;
+
+}
+
+.topFlower img{
+
+    width:120px;
+
+}
+
+#gift{
+
+    transform:scale(.9);
+
+}
+
+.photo{
+
+    max-width:340px;
+
+}
+
+}
+/* =========================
+LETTER
+========================= */
+
+.letter{
+
+    max-width:700px;
+
+    margin:90px auto;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.line{
+
+    width:120px;
+
+    height:2px;
+
+    background:#ff8fb7;
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+}
+
+.letter h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:55px;
+
+    color:#2f2f2f;
+
+    font-weight:600;
+
+}
+
+.letter span{
+
+    color:#f07ba6;
+
+    font-style:italic;
+
+}
+
+.small{
+
+    margin-top:20px;
+
+    font-style:italic;
+
+    color:#9a8b92;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+}
+
+.divider{
+
+    width:60px;
+
+    height:2px;
+
+    background:#ffb2ca;
+
+    margin:35px auto;
+
+}
+
+.message{
+
+    white-space:pre-line;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:24px;
+
+    color:#4a4a4a;
+
+    line-height:2.1;
+
+}
+.photo{
+
+    position:relative;
+
+}
+
+.tape{
+
+    position:absolute;
+
+    width:70px;
+
+    height:20px;
+
+    background:#ffd6e7;
+
+    top:-10px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(-5deg);
+
+    opacity:.85;
+
+    border-radius:3px;
+
+  }
